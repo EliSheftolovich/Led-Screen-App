@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Form, FormControl, Nav, Navbar, NavbarBrand, NavDropdown } from 'react-bootstrap';
 import './AppNavbar.css';
 
-class AppNavbar extends React.Component {
+class AppNavbar extends Component {
     render() { 
         return ( 
           <div className="nav">

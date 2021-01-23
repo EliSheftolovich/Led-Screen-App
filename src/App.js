@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { Component } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
@@ -11,8 +11,7 @@ import ContactUs from './pages/ContactUs';
 import PersonalArea from './pages/PrersonalArea';
 import AppNavbar from './comp/AppNavbar';
 
-
-class App extends React.Component {
+class App extends Component {
     render() {
         return (
             <div>

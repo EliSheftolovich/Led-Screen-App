@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class PersonalArea extends React.Component {
+class PersonalArea extends Component {
   render() { 
     return ( 
     <div>

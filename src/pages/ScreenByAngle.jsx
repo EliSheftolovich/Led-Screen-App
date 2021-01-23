@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class ScreenByAngle extends React.Component {
+class ScreenByAngle extends Component {
   render() { 
     return ( 
     <div>

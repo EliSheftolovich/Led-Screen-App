@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class ScreenBySize extends React.Component {
+class ScreenBySize extends Component {
   render() { 
     return ( 
     <div>

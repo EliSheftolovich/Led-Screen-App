@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class LandingPage extends React.Component {
+class LandingPage extends Component {
   render() { 
     return ( 
     <div>
+      <div>
       I am a LandingPage
+      </div>
+
+      <button className="btn btn-dark"><a href="/#/ScreenBySize">Enter</a></button>
     </div>
 
       );
