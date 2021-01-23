@@ -1,7 +1,8 @@
 import './App.css';
-import React, { Component } from 'react';
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+
 
 import LandingPage from './pages/LandingPage';
 import Info from './pages/Info';
@@ -11,7 +12,8 @@ import ContactUs from './pages/ContactUs';
 import PersonalArea from './pages/PrersonalArea';
 import AppNavbar from './comp/AppNavbar';
 
-class App extends Component {
+
+class App extends React.Component {
     render() {
         return (
             <div>
