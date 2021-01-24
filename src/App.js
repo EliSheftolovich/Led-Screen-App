@@ -20,7 +20,7 @@ class App extends React.Component {
                 <HashRouter>
                     <Container fluid>
                         <Row>
-                            <Col xs={3} md={2} >
+                            <Col xs={3} sm={2} >
                                 <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
                                     <AppNavbar />
                                 </Route>
@@ -33,31 +33,31 @@ class App extends React.Component {
                                     </Col>
                                 </Route>
                                 <Route exact path="/ScreenBySize">
-                                    <Col xs={9} md={10} >
+                                    <Col xs={9} sm={10} >
                                         <ScreenBySize />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/ScreenByAngle">
-                                    <Col xs={9} md={10} >
+                                    <Col xs={9} sm={10} >
                                         <ScreenByAngle />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/Info">
-                                    <Col xs={9} md={10} >
+                                    <Col xs={9} sm={10} >
                                         <Info />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/ContactUs">
-                                    <Col xs={9} md={10} >
+                                    <Col xs={9} sm={10} >
                                         <ContactUs />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/PersonalArea">
-                                    <Col xs={9} md={10} >
+                                    <Col xs={9} sm={10} >
                                         <PersonalArea />
                                     </Col>
                                 </Route>

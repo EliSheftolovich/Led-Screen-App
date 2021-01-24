@@ -4,7 +4,8 @@ class PersonalArea extends Component {
   render() { 
     return ( 
     <div>
-      Personal Area
+      <h3>Personal Area</h3>
+      
     </div>
 
       );

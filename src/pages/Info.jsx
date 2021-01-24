@@ -24,7 +24,8 @@ class Info extends Component {
   render() { 
     return ( 
     <div>
-      info with Search box
+      <h3>info with Search box</h3>
+      
       <Table>
         <thead>
           <tr>

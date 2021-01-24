@@ -4,7 +4,8 @@ class ScreenByAngle extends Component {
   render() { 
     return ( 
     <div>
-       Screen By Angle
+      <h3>Screen By Angle</h3>
+
     </div>
 
       );
