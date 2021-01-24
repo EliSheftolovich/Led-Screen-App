@@ -38,7 +38,8 @@ class Info extends Component {
           {this.state.articles.map(article => (
           <tr key={article._id}>
             <td>{article.title}</td>
-            <td><Like liked={article.liked} 
+            <td><Like 
+            liked={article.liked} 
             onClick={()=>this.handleLike(article)}/></td>
             <td>{article.text}</td>
             <td>{article.subject}</td>

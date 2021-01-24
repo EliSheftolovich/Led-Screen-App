@@ -15,9 +15,7 @@ class AppNavbar extends Component {
       <Nav.Link href="/#/ContactUs">צור קשר</Nav.Link>
     </Navbar>
           </div>
-
-
-
+          
          );
     }
 }
