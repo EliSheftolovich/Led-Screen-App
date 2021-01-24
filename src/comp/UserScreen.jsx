@@ -37,6 +37,8 @@ class UserScreen extends Component {
             flexWrap: "wrap"
           }
 
+          console.log(this.props.cabinetLength);
+
         return (
         <div>
             <div style={cabinetSize}></div>

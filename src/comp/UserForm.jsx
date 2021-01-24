@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 
 class UserForm extends Component {
-    state = {
-        cabinetLength: 50
-    }
-
-    cabinetLengthChange = (e) => {
-        this.setState({
-            cabinetLength: parseInt(e.target.value)
-        })
-    }
 
     render() { 
         return (
@@ -19,14 +10,14 @@ class UserForm extends Component {
             <Form.Group controlId="formBasicRange">
                 <Form.Label className="me-2">אורך (ס"מ)</Form.Label>
                 <Form.Control  
-                 value={this.state.cabinetLength} 
-                 onChange={this.cabinetLengthChange}
+                 value={this.props.cabinetLength} 
+                 onChange={this.props.cabinetLengthChange}
                  min="1" max="200"
                 size="sm" type="range" />
                 
                 <Form.Control 
-                value={this.state.cabinetLength} 
-                onChange={this.cabinetLengthChange}
+                value={this.props.cabinetLength} 
+                onChange={this.props.cabinetLengthChange}
                 min="1" max="5"
                 size="sm" type="number" />
             </Form.Group>

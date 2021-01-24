@@ -6,13 +6,25 @@ import UserScreen from '../comp/UserScreen';
 import Usertips from '../comp/UserTips';
 
 class ScreenBySize extends Component {
+
+  state = {
+    cabinetLength: 50
+}
+
+cabinetLengthChange = (e) => {
+  this.setState({
+      cabinetLength: parseInt(e.target.value)
+  })
+}
   render() { 
     return ( 
     <div>
       <h3>Screen By Size</h3>
       <Row>
         <Col>
-        <UserForm/>
+        <UserForm 
+        cabinetLengthChange={this.cabinetLengthChange} 
+        cabinetLength={this.state.cabinetLength} />
         </Col>
 
         <Col>
@@ -24,7 +36,8 @@ class ScreenBySize extends Component {
       <Col>
         <UserScreen
          cabinetsHor={10}
-         cabinetsVer={5}/>
+         cabinetsVer={5}
+         cabinetLength={this.state.cabinetLength}/>
       </Col> 
       <Col xs={4}>
         <Usertips/>
