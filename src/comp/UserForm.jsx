@@ -8,17 +8,17 @@ class UserForm extends Component {
             <Form>
                 <h6>קבינט (קוביה)</h6>
             <Form.Group controlId="cabinetLength">
-                <Form.Label className="me-2">אורך (ס"מ)</Form.Label>
+                <Form.Label className="mx-auto">אורך (ס"מ)</Form.Label>
                 <Form.Control  
                  value={this.props.cabinetLength} 
                  onChange={this.props.cabinetLengthChange}
-                 min="1" max="200"
+                 min="5" max="200"
                 size="sm" type="range" />
                 
                 <Form.Control 
                 value={this.props.cabinetLength} 
                 onChange={this.props.cabinetLengthChange}
-                min="1" max="200"
+                min="5" max="200"
                 size="sm" type="number" />
             </Form.Group>
 
@@ -27,13 +27,13 @@ class UserForm extends Component {
                 <Form.Control  
                  value={this.props.cabinetWidth} 
                  onChange={this.props.cabinetWidthChange}
-                 min="1" max="200"
+                 min="5" max="200"
                 size="sm" type="range" />
                 
                 <Form.Control 
                 value={this.props.cabinetWidth} 
                 onChange={this.props.cabinetWidthChange}
-                min="1" max="200"
+                min="5" max="200"
                 size="sm" type="number" />
             </Form.Group>
 

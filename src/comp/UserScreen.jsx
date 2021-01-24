@@ -30,22 +30,18 @@ class UserScreen extends Component {
           };
 
           const userScreenStyle = {
-            width: (this.props.cabinetsHor * 30) + "px",
-            height: (this.props.cabinetsVer * 30) + "px",
+            width: (this.props.cabinetsHor * this.props.cabinetLength) + "px",
+            height: (this.props.cabinetsVer * this.props.cabinetWidth) + "px",
             backgroundColor: "DodgerBlue",
             display: "flex",
             flexWrap: "wrap"
           }
 
-          console.log(this.props.cabinetLength);
-          console.log(this.props.cabinetWidth);
-
-
         return (
         <div>
             <div style={cabinetSize}></div>
             <br></br>
-            <div style={{display: "flex"}}>
+            <div className="d-flex">
                 <div style={userScreenStyle} className="user-screen">
                 {this.renderCabinets()}
                 </div>
