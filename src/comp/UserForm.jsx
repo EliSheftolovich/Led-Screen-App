@@ -7,7 +7,7 @@ class UserForm extends Component {
         return (
             <Form>
                 <h6>קבינט (קוביה)</h6>
-            <Form.Group controlId="formBasicRange">
+            <Form.Group controlId="cabinetLength">
                 <Form.Label className="me-2">אורך (ס"מ)</Form.Label>
                 <Form.Control  
                  value={this.props.cabinetLength} 
@@ -18,32 +18,60 @@ class UserForm extends Component {
                 <Form.Control 
                 value={this.props.cabinetLength} 
                 onChange={this.props.cabinetLengthChange}
-                min="1" max="5"
+                min="1" max="200"
                 size="sm" type="number" />
             </Form.Group>
 
-            <Form.Group controlId="formBasicRange">
-                <Form.Label>רוחב</Form.Label>
-                <Form.Control size="sm" type="number" />
+            <Form.Group controlId="cabinetWidth">
+                <Form.Label className="me-2">רוחב (ס"מ)</Form.Label>
+                <Form.Control  
+                 value={this.props.cabinetWidth} 
+                 onChange={this.props.cabinetWidthChange}
+                 min="1" max="200"
+                size="sm" type="range" />
+                
+                <Form.Control 
+                value={this.props.cabinetWidth} 
+                onChange={this.props.cabinetWidthChange}
+                min="1" max="200"
+                size="sm" type="number" />
             </Form.Group>
 
             <h6>מסך</h6>
-            <Form.Group controlId="formBasicRange">
-                <Form.Label>מספר קוביות באורך</Form.Label>
-                <Form.Control size="sm" type="number" />
+            <Form.Group controlId="cabinetsHor">
+                <Form.Label className="me-2">מספר קוביות לאורך</Form.Label>
+                <Form.Control  
+                 value={this.props.cabinetsHor} 
+                 onChange={this.props.cabinetsHorChange}
+                 min="1" max="200"
+                size="sm" type="range" />
+                
+                <Form.Control 
+                value={this.props.cabinetsHor} 
+                onChange={this.props.cabinetsHorChange}
+                min="1" max="200"
+                size="sm" type="number" />
             </Form.Group>
 
-            <Form.Group controlId="formBasicRange">
-                <Form.Label>מספר קוביות ברוחב</Form.Label>
-                <Form.Control size="sm" type="number" />
+            <Form.Group controlId="cabinetsVer">
+                <Form.Label className="me-2">מספר קוביות לגובה</Form.Label>
+                <Form.Control  
+                 value={this.props.cabinetsVer} 
+                 onChange={this.props.cabinetsVerChange}
+                 min="1" max="200"
+                size="sm" type="range" />
+                
+                <Form.Control 
+                value={this.props.cabinetsVer} 
+                onChange={this.props.cabinetsVerChange}
+                min="1" max="200"
+                size="sm" type="number" />
             </Form.Group>
 
             {/* <Form.Group controlId="formBasicRange">
                 <Form.Label>Range</Form.Label>
 
             </Form.Group> */}
-
-
             </Form>
 
           );

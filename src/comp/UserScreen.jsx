@@ -38,12 +38,14 @@ class UserScreen extends Component {
           }
 
           console.log(this.props.cabinetLength);
+          console.log(this.props.cabinetWidth);
+
 
         return (
         <div>
             <div style={cabinetSize}></div>
             <br></br>
-            <div>
+            <div style={{display: "flex"}}>
                 <div style={userScreenStyle} className="user-screen">
                 {this.renderCabinets()}
                 </div>
