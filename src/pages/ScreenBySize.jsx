@@ -23,8 +23,8 @@ class ScreenBySize extends Component {
       <Row>
       <Col>
         <UserScreen
-         cabinetsHor = {20}
-         cabinetsVer={ 5}/>
+         cabinetsHor={10}
+         cabinetsVer={5}/>
       </Col> 
       <Col xs={4}>
         <Usertips/>

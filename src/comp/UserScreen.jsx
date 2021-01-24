@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import uuid from 'react-uuid'
+
 import { Col, Row } from 'react-bootstrap';
 
 class UserScreen extends Component {
     constructor(props){
         super(props)
     }
+
     renderCabinets = () => {
         const res = [];
         const width = (100/this.props.cabinetsHor) + "%";
         const height = (100/this.props.cabinetsVer) + "%";
         for (let i=1; i<=this.props.cabinetsHor; i++) {
             for (let j=1; j<=this.props.cabinetsVer; j++) {
-                const cabinet= <span style={{width, height, border: "solid 1px black"}}>{i*j}</span>;
+                const cabinet= <span key={uuid()} style={{width, height, border: "solid 1px black"}}></span>;
                 res.push(cabinet)
             }
         }
@@ -19,8 +22,7 @@ class UserScreen extends Component {
     }
 
     render() { 
-
-        let cabinetSize = {
+        const cabinetSize = {
             backgroundColor: "DodgerBlue",
             border: "1px solid black",
             height: "30px",
@@ -30,7 +32,7 @@ class UserScreen extends Component {
           const userScreenStyle = {
             width: (this.props.cabinetsHor * 30) + "px",
             height: (this.props.cabinetsVer * 30) + "px",
-            backgroundColor: "red",
+            backgroundColor: "DodgerBlue",
             display: "flex",
             flexWrap: "wrap"
           }

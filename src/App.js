@@ -20,11 +20,11 @@ class App extends React.Component {
                 <HashRouter>
                     <Container fluid>
                         <Row>
-                            <Col xs={3} sm={2} >
-                                <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
-                                    <AppNavbar />
-                                </Route>
-                            </Col>
+                            <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
+                                <Col xs={3} sm={2} >
+                                <AppNavbar />
+                                </Col>
+                            </Route>
                             <Switch>
 
                                 <Route exact path="/">
