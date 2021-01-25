@@ -10,7 +10,7 @@ class ScreenBySize extends Component {
   state = {
     cabinetLength: 50,
     cabinetWidth: 50,
-    cabinetPtich: 3.9,
+    cabinetPitch: 500/128,
     cabinetsHor: 10,
     cabinetsVer: 5
 
@@ -37,6 +37,11 @@ cabinetsHorChange = (e) => {
     cabinetsHor: parseInt(e.target.value)
   })
 }
+cabinetPitchChange = (e) => {
+  this.setState({
+    cabinetPitch: parseFloat(e.target.value)
+  })
+}
 
   render() { 
     return ( 
@@ -53,6 +58,8 @@ cabinetsHorChange = (e) => {
         cabinetsVer={this.state.cabinetsVer}
         cabinetsHorChange={this.cabinetsHorChange} 
         cabinetsHor={this.state.cabinetsHor}
+        cabinetPitchChange={this.cabinetPitchChange} 
+        cabinetPitch={this.state.cabinetPitch}
         
         />
         </Col>
@@ -73,6 +80,7 @@ cabinetsHorChange = (e) => {
          cabinetWidth={this.state.cabinetWidth}
          cabinetsHor={this.state.cabinetsHor}
          cabinetsVer={this.state.cabinetsVer}
+         cabinetPitch={this.state.cabinetPitch}
          
          />
       </Col> 

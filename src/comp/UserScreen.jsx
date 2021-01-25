@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import uuid from 'react-uuid'
-
-import { Col, Row } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faMale } from '@fortawesome/free-solid-svg-icons';
 
 class UserScreen extends Component {
-    constructor(props){
-        super(props)
-    }
 
     renderCabinets = () => {
         const res = [];
@@ -22,30 +19,43 @@ class UserScreen extends Component {
     }
 
     render() { 
+        const {cabinetsHor, cabinetsVer, cabinetLength, cabinetWidth } = this.props;
+
+        console.log(this.props.cabinetPitch)
+
         const cabinetSize = {
             backgroundColor: "DodgerBlue",
             border: "1px solid black",
-            height: "30px",
-            width: "30px"
+            height: cabinetWidth,
+            width: cabinetLength
           };
 
           const userScreenStyle = {
-            width: (this.props.cabinetsHor * this.props.cabinetLength) + "px",
-            height: (this.props.cabinetsVer * this.props.cabinetWidth) + "px",
+            width: (cabinetsHor * cabinetLength) + "px",
+            height: (cabinetsVer * cabinetWidth) + "px",
             backgroundColor: "DodgerBlue",
             display: "flex",
             flexWrap: "wrap"
+          }
+
+          const screenWraper = {
+            display: "flex",
+            alignItems: "flex-end"
           }
 
         return (
         <div>
             <div style={cabinetSize}></div>
             <br></br>
-            <div className="d-flex">
+            <div style={screenWraper}> 
+                <FontAwesomeIcon icon={faMale}/>
                 <div style={userScreenStyle} className="user-screen">
                 {this.renderCabinets()}
                 </div>
             </div>
+
+            
+
         </div> 
          );
     }
