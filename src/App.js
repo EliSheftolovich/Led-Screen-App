@@ -3,7 +3,6 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
-
 import LandingPage from './pages/LandingPage';
 import Info from './pages/Info';
 import ScreenByAngle from './pages/ScreenByAngle';
@@ -11,6 +10,9 @@ import ScreenBySize from './pages/ScreenBySize';
 import ContactUs from './pages/ContactUs';
 import PersonalArea from './pages/PrersonalArea';
 import AppNavbar from './comp/AppNavbar';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+
 
 
 class App extends React.Component {
@@ -20,10 +22,26 @@ class App extends React.Component {
         cabinetHeight: 50,
         cabinetPitch: 500/128,
         cabinetsHor: 10,
-        cabinetsVer: 5
+        cabinetsVer: 5,
+        activeUser:{
+          "id": 1,
+          "fname": "Eli",
+          "lname": "Doe",
+          "email": "elishafto@gmail.com",
+          "pwd": "123"
+      }
+
     
     };
-    
+
+    handleLogin = (userObj) => {
+      this.setState({activeUser: userObj})
+    }
+    handleLogout = () => {
+      this.setState({activeUser: null})
+    }
+
+
     cabinetWidthChange = (e) => {
       this.setState({
           cabinetWidth: parseInt(e.target.value)
@@ -96,7 +114,7 @@ class App extends React.Component {
                         <Row>
                             <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
                                 <Col xs={2} >
-                                <AppNavbar />
+                                <AppNavbar handleLogout={this.handleLogout} activeUser={this.state.activeUser} />
                                 </Col>
                             </Route>
                             <Switch>
@@ -120,6 +138,7 @@ class App extends React.Component {
                                                 cabinetPitchChange={this.cabinetPitchChange} 
                                                 cabinetPitch={cabinetPitch}
                                                 screenTechData={screenTechData}
+                                                activeUser={this.state.activeUser}
                                         />
                                     </Col>
                                 </Route>
@@ -144,7 +163,17 @@ class App extends React.Component {
 
                                 <Route exact path="/PersonalArea">
                                     <Col xs={10} >
-                                        <PersonalArea />
+                                        <PersonalArea activeUser={this.state.activeUser}/>
+                                    </Col>
+                                </Route>
+                                <Route exact path="/login">
+                                    <Col xs={10} >
+                                    <LoginPage handleLogin={this.handleLogin}/>
+                                    </Col>
+                                </Route>
+                                <Route exact path="/signup">
+                                    <Col xs={10} >
+                                    <SignupPage handleLogin={this.handleLogin}/>
                                     </Col>
                                 </Route>
 
@@ -182,5 +211,3 @@ export default App;
     //     </div>
     //   );
     // }
-
-
