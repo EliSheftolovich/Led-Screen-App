@@ -42,19 +42,19 @@ class UserResult extends Component {
     </tr>
     <tr>
       <td>מ"ר</td>
-      <td style={resultsStyle}>{ScreenSqm}</td>
+      <td style={resultsStyle}>{ScreenSqm.toFixed(1)}</td>
     </tr>
     <tr>
       <td>צריכת חשמל מקסימלית (Kw)</td>
-      <td style={resultsStyle}>{screenMaxPowerCons/1000}</td>
+      <td style={resultsStyle}>{(screenMaxPowerCons/1000).toFixed(1)}</td>
     </tr>
     <tr>
       <td>צריכת חשמל ממוצעת (Kw)</td>
-      <td style={resultsStyle}>{screenAvPowerCons/1000}</td>
+      <td style={resultsStyle}>{(screenAvPowerCons/1000).toFixed(1)}</td>
     </tr>
     <tr>
       <td>משקל לפי 36 ק"ג למ"ר</td>
-      <td style={resultsStyle}>{screenWeigth}</td>
+      <td style={resultsStyle}>{screenWeigth.toFixed(1)}</td>
     </tr>
     <tr>
       <td>מרחק צפיה מינימלי (מטר)</td>

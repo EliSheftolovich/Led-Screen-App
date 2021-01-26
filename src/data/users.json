@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "fname": "Eli",
+        "lname": "Doe",
+        "email": "elishafto@gmail.com",
+        "pwd": "123",
+        "userId": "12"
+
+    },
+    {
+        "id": 2,
+        "fname": "John",
+        "lname": "Doe",        
+        "email": "sara@sara.com",
+        "pwd": "abc",
+        "userId": "2"
+    }
+]

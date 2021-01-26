@@ -14,7 +14,81 @@ import AppNavbar from './comp/AppNavbar';
 
 
 class App extends React.Component {
+
+    state = {
+        cabinetWidth: 50,
+        cabinetHeight: 50,
+        cabinetPitch: 500/128,
+        cabinetsHor: 10,
+        cabinetsVer: 5
+    
+    };
+    
+    cabinetWidthChange = (e) => {
+      this.setState({
+          cabinetWidth: parseInt(e.target.value)
+      })
+    }
+    cabinetHeightChange = (e) => {
+      this.setState({
+          cabinetHeight: parseInt(e.target.value)
+      })
+    }
+    cabinetsVerChange = (e) => {
+      this.setState({
+        cabinetsVer: parseInt(e.target.value)
+      })
+    }
+    cabinetsHorChange = (e) => {
+      this.setState({
+        cabinetsHor: parseInt(e.target.value)
+      })
+    }
+    cabinetPitchChange = (e) => {
+      if (e.target.value == 600/108) {
+        this.setState({
+          cabinetPitch: parseFloat(e.target.value),
+          cabinetWidth: 60,
+          cabinetHeight: 60,
+        })
+      }
+      else {
+        this.setState({
+          cabinetPitch: parseFloat(e.target.value),
+          cabinetWidth: 50,
+          cabinetHeight: 50,
+        })
+      }
+    }
+    
+    changeCabinetTo60 = (e) =>{
+      this.setState({
+        cabinetWidth: 60,
+        cabinetHeight: 60
+      })
+    }
+
     render() {
+        const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
+
+        const screenLength= cabinetsHor*cabinetWidth/100;  // Meters
+        const screenHigth = cabinetsVer*cabinetHeight/100;
+        const screenSize = `${screenLength} * ${screenHigth}`;
+        const screenHorRes = screenLength * 1000 / cabinetPitch;
+        const screenVerRes = screenHigth * 1000 / cabinetPitch;
+        const screenResolution = `${screenHorRes} *  ${screenVerRes}`;
+        const screenRatio = screenLength / screenHigth;
+        const screenDiagonal = Math.pow((Math.pow((screenLength / 0.0254), 2) * Math.pow((screenHigth / 0.0254), 2)), 1/2); // inch
+        const ScreenSqm = screenLength*screenHigth;
+        const screenMaxPowerCons = ScreenSqm * 500;  // Watt
+        const screenAvPowerCons = ScreenSqm * 200;
+        const screenWeigth = ScreenSqm * 36;  //kg
+        const screenMinView = cabinetPitch * 1.1; //meters
+        const screenOptView = cabinetPitch * 1.9;
+    
+        const screenTechData = {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
+          screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView, screenOptView}
+
         return (
             <div>
                 <HashRouter>
@@ -34,7 +108,19 @@ class App extends React.Component {
                                 </Route>
                                 <Route exact path="/ScreenBySize">
                                     <Col xs={10}>
-                                        <ScreenBySize />
+                                        <ScreenBySize
+                                                cabinetWidthChange={this.cabinetWidthChange} 
+                                                cabinetWidth={cabinetWidth}
+                                                cabinetHeightChange={this.cabinetHeightChange} 
+                                                cabinetHeight={cabinetHeight}
+                                                cabinetsVerChange={this.cabinetsVerChange} 
+                                                cabinetsVer={cabinetsVer}
+                                                cabinetsHorChange={this.cabinetsHorChange} 
+                                                cabinetsHor={cabinetsHor}
+                                                cabinetPitchChange={this.cabinetPitchChange} 
+                                                cabinetPitch={cabinetPitch}
+                                                screenTechData={screenTechData}
+                                        />
                                     </Col>
                                 </Route>
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 
 class UserForm extends Component {
 
@@ -88,7 +88,16 @@ class UserForm extends Component {
 
             </Form>
 
-            <button className="btn btn-secondary mt-3">קבל הערכת מחיר ממספר ספקים</button>
+            <Row>
+                <Col>
+                <button className="btn btn-light mt-2">שמור מפרט באזור האישי</button>
+                </Col>
+
+                <Col>
+                <button className="btn btn-primary mt-2">קבל הערכת מחיר ממספר ספקים</button>
+                </Col>
+            </Row>
+
 
             </div>
             
