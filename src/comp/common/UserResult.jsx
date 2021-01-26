@@ -5,28 +5,13 @@ class UserResult extends Component {
 
 
     render() { 
-      const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.props;
 
-      const screenLength= cabinetsHor*cabinetWidth/100;
-      const screenHigth = cabinetsVer*cabinetHeight/100;
-      const screenSize = `${screenLength} * ${screenHigth}`;
-      const screenHorRes = screenLength * 1000 / cabinetPitch;
-      const screenVerRes = screenHigth * 1000 / cabinetPitch;
-      const screenResolution = `${screenHorRes} *  ${screenVerRes}`;
-      const screenRatio = screenHigth /screenLength;
-      const screenDiagonal = Math.pow((Math.pow((screenLength / 0.0254), 2) * Math.pow((screenHigth / 0.0254), 2)), 1/2);
-      const ScreenSqm = screenLength*screenHigth;
-      const screenMaxPowerCons = ScreenSqm * 500;
-      const screenAvPowerCons = ScreenSqm * 200;
-      const screenWeigth = ScreenSqm * 36;
-      const screenMinView = cabinetPitch * 1.1;
-      const screenOptView = cabinetPitch * 1.9;
-
-      const screenTechData = {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
-        screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView, screenOptView}
+      const {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
+        screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons,
+         screenWeigth, screenMinView, screenOptView} = this.props.screenTechData
 
 
-      // console.log(screenDiagonal)
+      console.log(this.props.screenTechData)
 
       const resultsStyle = {
         direction: "ltr",
@@ -82,6 +67,8 @@ class UserResult extends Component {
 
   </tbody>
 </Table>
+<button className="btn btn-secondary" 
+>קבל המלצות</button>
 </React.Fragment>
 
           );
