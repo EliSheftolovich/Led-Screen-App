@@ -11,7 +11,7 @@ class UserResult extends Component {
          screenWeigth, screenMinView, screenOptView} = this.props.screenTechData
 
 
-      console.log(this.props.screenTechData)
+      // console.log(this.props.screenTechData)
 
       const resultsStyle = {
         direction: "ltr",
@@ -21,7 +21,7 @@ class UserResult extends Component {
 <React.Fragment>
 <h6>נתונים טכניים</h6>
 
-<Table striped bordered hover>
+<Table striped bordered hover variant="light">
 
   <tbody >
     <tr>
@@ -67,8 +67,6 @@ class UserResult extends Component {
 
   </tbody>
 </Table>
-<button className="btn btn-secondary" 
->קבל המלצות</button>
 </React.Fragment>
 
           );

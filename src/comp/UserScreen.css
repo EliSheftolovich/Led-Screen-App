@@ -1,13 +1,13 @@
 .user-screen {
-  background-color: rgb(169, 177, 177);
+  /* background-color: rgb(169, 177, 177); */
 }
 
 .screen-wraper {
-  /* display: flex;
-  align-items: flex-end;
-  justify-content: flex-start; */
-  display: grid;
-  border: black solid 1px;
+  display: flex;
+  /* align-items: flex-end; */
+  justify-content: center;
+  /* display: grid; */
+  /* border: black solid 1px; */
   width: 50vw;
   height: 30vh;
   /* resize: none; */

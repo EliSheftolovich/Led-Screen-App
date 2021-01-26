@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import uuid from 'react-uuid'
+import uuid from 'react-uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMale } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,7 +22,7 @@ class UserScreen extends Component {
     }
 
     render() { 
-        const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.props;
+        const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth } = this.props;
 
         const cabinetSize = {
             backgroundColor: "DodgerBlue",
@@ -31,9 +31,16 @@ class UserScreen extends Component {
             width: cabinetWidth
           };
 
+          let ratio = 3;
+          if (cabinetsHor > 90 || cabinetsVer > 35) {ratio = 5.5}
+          else if (cabinetsHor > 80 || cabinetsVer > 30) {ratio = 5}
+          else if (cabinetsHor > 70 || cabinetsVer > 25) {ratio = 4.5}
+          else if  (cabinetsHor > 60 || cabinetsVer > 20) {ratio = 4}
+          else if (cabinetsHor > 50 || cabinetsVer > 15) {ratio = 3.5}
+
           const userScreenStyle = {
-            width: (cabinetsHor * cabinetWidth)/2 + "px",
-            height: (cabinetsVer * cabinetHeight)/2 + "px",
+            width: (cabinetsHor * cabinetWidth)/ratio + "px",
+            height: (cabinetsVer * cabinetHeight)/ratio + "px",
             backgroundColor: "DodgerBlue",
             display: "flex",
             flexWrap: "wrap"
@@ -41,9 +48,10 @@ class UserScreen extends Component {
 
         return (
         <div className="user-screen">
-            <div style={cabinetSize}></div>
-            <br></br>
+            {/* <div style={cabinetSize}></div> */}
+            {/* <br></br> */}
             <div className="screen-wraper" >
+                
             {/* <figure> 
                 <FontAwesomeIcon icon={faMale} 
                 preserveAspectRatio="xMidYMin slice" x="0" y="30" 
@@ -51,6 +59,7 @@ class UserScreen extends Component {
                 // className="man-icon"
                 />
             </figure>  */}
+            
                 <div style={userScreenStyle} >
                 {this.renderCabinets()}
                 </div>

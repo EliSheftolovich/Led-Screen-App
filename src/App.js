@@ -21,7 +21,7 @@ class App extends React.Component {
                     <Container fluid>
                         <Row>
                             <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
-                                <Col xs={3} sm={2} >
+                                <Col xs={2} >
                                 <AppNavbar />
                                 </Col>
                             </Route>
@@ -33,31 +33,31 @@ class App extends React.Component {
                                     </Col>
                                 </Route>
                                 <Route exact path="/ScreenBySize">
-                                    <Col xs={9} sm={10} >
+                                    <Col xs={10}>
                                         <ScreenBySize />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/ScreenByAngle">
-                                    <Col xs={9} sm={10} >
+                                    <Col xs={10} >
                                         <ScreenByAngle />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/Info">
-                                    <Col xs={9} sm={10} >
+                                    <Col xs={10} >
                                         <Info />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/ContactUs">
-                                    <Col xs={9} sm={10} >
+                                    <Col xs={10} >
                                         <ContactUs />
                                     </Col>
                                 </Route>
 
                                 <Route exact path="/PersonalArea">
-                                    <Col xs={9} sm={10} >
+                                    <Col xs={10} >
                                         <PersonalArea />
                                     </Col>
                                 </Route>

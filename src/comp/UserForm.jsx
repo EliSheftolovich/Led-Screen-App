@@ -6,7 +6,8 @@ class UserForm extends Component {
     render() { 
         const {cabinetWidth, cabinetHeight, cabinetPitch, cabinetsHor, cabinetsVer } = this.props;
         return (
-            <Form>
+            <div>
+                <Form>
                 <h6>קבינט (קוביה)</h6>
 
                 <Form.Group controlId="cabinetPitch" >
@@ -60,13 +61,13 @@ class UserForm extends Component {
                 <Form.Control  
                  value={cabinetsHor} 
                  onChange={this.props.cabinetsHorChange}
-                 min="1" max="200"
+                 min="2" max="100"
                 size="sm" type="range" />
                 
                 <Form.Control 
                 value={cabinetsHor} 
                 onChange={this.props.cabinetsHorChange}
-                min="1" max="200"
+                min="2" max="100"
                 size="sm" type="number" />
             </Form.Group>
 
@@ -75,18 +76,22 @@ class UserForm extends Component {
                 <Form.Control  
                  value={cabinetsVer} 
                  onChange={this.props.cabinetsVerChange}
-                 min="1" max="200"
+                 min="2" max="30"
                 size="sm" type="range" />
                 
                 <Form.Control 
                 value={cabinetsVer} 
                 onChange={this.props.cabinetsVerChange}
-                min="1" max="200"
+                min="2" max="30"
                 size="sm" type="number" />
             </Form.Group>
 
             </Form>
 
+            <button className="btn btn-secondary mt-3">קבל הערכת מחיר ממספר ספקים</button>
+
+            </div>
+            
           );
     }
 }

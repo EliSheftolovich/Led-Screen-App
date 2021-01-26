@@ -66,19 +66,19 @@ changeCabinetTo60 = (e) =>{
   render() { 
     const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
 
-    const screenLength= cabinetsHor*cabinetWidth/100;
+    const screenLength= cabinetsHor*cabinetWidth/100;  // Meters
     const screenHigth = cabinetsVer*cabinetHeight/100;
     const screenSize = `${screenLength} * ${screenHigth}`;
     const screenHorRes = screenLength * 1000 / cabinetPitch;
     const screenVerRes = screenHigth * 1000 / cabinetPitch;
     const screenResolution = `${screenHorRes} *  ${screenVerRes}`;
-    const screenRatio = screenHigth /screenLength;
-    const screenDiagonal = Math.pow((Math.pow((screenLength / 0.0254), 2) * Math.pow((screenHigth / 0.0254), 2)), 1/2);
+    const screenRatio = screenLength / screenHigth;
+    const screenDiagonal = Math.pow((Math.pow((screenLength / 0.0254), 2) * Math.pow((screenHigth / 0.0254), 2)), 1/2); // inch
     const ScreenSqm = screenLength*screenHigth;
-    const screenMaxPowerCons = ScreenSqm * 500;
+    const screenMaxPowerCons = ScreenSqm * 500;  // Watt
     const screenAvPowerCons = ScreenSqm * 200;
-    const screenWeigth = ScreenSqm * 36;
-    const screenMinView = cabinetPitch * 1.1;
+    const screenWeigth = ScreenSqm * 36;  //kg
+    const screenMinView = cabinetPitch * 1.1; //meters
     const screenOptView = cabinetPitch * 1.9;
 
     const screenTechData = {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
@@ -102,30 +102,21 @@ changeCabinetTo60 = (e) =>{
         cabinetsHor={this.state.cabinetsHor}
         cabinetPitchChange={this.cabinetPitchChange} 
         cabinetPitch={this.state.cabinetPitch}
-        
         />
         </Col>
 
         <Col>
-        <UserResult
-        screenTechData={screenTechData}
-         cabinetWidth={this.state.cabinetWidth}
-         cabinetHeight={this.state.cabinetHeight}
-         cabinetsHor={this.state.cabinetsHor}
-         cabinetsVer={this.state.cabinetsVer}
-         cabinetPitch={this.state.cabinetPitch}
-        
-        />
+        <UserResult screenTechData={screenTechData}/>
         </Col> 
 
         <Col xs={4}>
-        <Usertips/>
+        <Usertips screenTechData={screenTechData}/>
       </Col> 
       </Row>
       <br/>
       <Row>
       <Col>
-        <UserScreen
+        <UserScreen 
          cabinetWidth={this.state.cabinetWidth}
          cabinetHeight={this.state.cabinetHeight}
          cabinetsHor={this.state.cabinetsHor}
