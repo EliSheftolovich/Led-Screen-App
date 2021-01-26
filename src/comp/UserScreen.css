@@ -1,0 +1,37 @@
+.user-screen {
+  background-color: rgb(169, 177, 177);
+}
+
+.screen-wraper {
+  /* display: flex;
+  align-items: flex-end;
+  justify-content: flex-start; */
+  display: grid;
+  border: black solid 1px;
+  width: 50vw;
+  height: 30vh;
+  /* resize: none; */
+  /* overflow: scroll; */
+}
+
+.screen-wraper > * {
+  grid-area: 1/1;
+}
+
+/* figure {
+  display: block;
+  background: #cdf;
+  width: 5%;
+  max-width: 5em;
+  box-sizing: border-box;
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  border: solid thin navy;
+}
+
+.man-icon {
+  border: solid black 1px;
+  text-align: center;
+  width: 50;
+  height: 100;
+} */

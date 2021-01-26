@@ -5,28 +5,30 @@ import UserForm from '../comp/UserForm';
 import UserScreen from '../comp/UserScreen';
 import Usertips from '../comp/UserTips';
 
+import './ScreenBySize.css';
+
+
 class ScreenBySize extends Component {
 
   state = {
-    cabinetLength: 50,
     cabinetWidth: 50,
+    cabinetHeight: 50,
     cabinetPitch: 500/128,
     cabinetsHor: 10,
     cabinetsVer: 5
 
 };
 
-cabinetLengthChange = (e) => {
-  this.setState({
-      cabinetLength: parseInt(e.target.value)
-  })
-}
 cabinetWidthChange = (e) => {
   this.setState({
       cabinetWidth: parseInt(e.target.value)
   })
 }
-
+cabinetHeightChange = (e) => {
+  this.setState({
+      cabinetHeight: parseInt(e.target.value)
+  })
+}
 cabinetsVerChange = (e) => {
   this.setState({
     cabinetsVer: parseInt(e.target.value)
@@ -38,8 +40,26 @@ cabinetsHorChange = (e) => {
   })
 }
 cabinetPitchChange = (e) => {
+  if (e.target.value == 600/108) {
+    this.setState({
+      cabinetPitch: parseFloat(e.target.value),
+      cabinetWidth: 60,
+      cabinetHeight: 60,
+    })
+  }
+  else {
+    this.setState({
+      cabinetPitch: parseFloat(e.target.value),
+      cabinetWidth: 50,
+      cabinetHeight: 50,
+    })
+  }
+}
+
+changeCabinetTo60 = (e) =>{
   this.setState({
-    cabinetPitch: parseFloat(e.target.value)
+    cabinetWidth: 60,
+    cabinetHeight: 60
   })
 }
 
@@ -50,10 +70,10 @@ cabinetPitchChange = (e) => {
       <Row>
         <Col>
         <UserForm 
-        cabinetLengthChange={this.cabinetLengthChange} 
-        cabinetLength={this.state.cabinetLength}
         cabinetWidthChange={this.cabinetWidthChange} 
         cabinetWidth={this.state.cabinetWidth}
+        cabinetHeightChange={this.cabinetHeightChange} 
+        cabinetHeight={this.state.cabinetHeight}
         cabinetsVerChange={this.cabinetsVerChange} 
         cabinetsVer={this.state.cabinetsVer}
         cabinetsHorChange={this.cabinetsHorChange} 
@@ -65,7 +85,14 @@ cabinetPitchChange = (e) => {
         </Col>
 
         <Col>
-        <UserResult/>
+        <UserResult
+         cabinetWidth={this.state.cabinetWidth}
+         cabinetHeight={this.state.cabinetHeight}
+         cabinetsHor={this.state.cabinetsHor}
+         cabinetsVer={this.state.cabinetsVer}
+         cabinetPitch={this.state.cabinetPitch}
+        
+        />
         </Col> 
 
         <Col xs={4}>
@@ -76,8 +103,8 @@ cabinetPitchChange = (e) => {
       <Row>
       <Col>
         <UserScreen
-         cabinetLength={this.state.cabinetLength}
          cabinetWidth={this.state.cabinetWidth}
+         cabinetHeight={this.state.cabinetHeight}
          cabinetsHor={this.state.cabinetsHor}
          cabinetsVer={this.state.cabinetsVer}
          cabinetPitch={this.state.cabinetPitch}

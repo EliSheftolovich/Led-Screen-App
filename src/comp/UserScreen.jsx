@@ -3,6 +3,9 @@ import uuid from 'react-uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMale } from '@fortawesome/free-solid-svg-icons';
 
+import './UserScreen.css';
+
+
 class UserScreen extends Component {
 
     renderCabinets = () => {
@@ -19,43 +22,39 @@ class UserScreen extends Component {
     }
 
     render() { 
-        const {cabinetsHor, cabinetsVer, cabinetLength, cabinetWidth } = this.props;
-
-        console.log(this.props.cabinetPitch)
+        const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.props;
 
         const cabinetSize = {
             backgroundColor: "DodgerBlue",
             border: "1px solid black",
-            height: cabinetWidth,
-            width: cabinetLength
+            height: cabinetHeight,
+            width: cabinetWidth
           };
 
           const userScreenStyle = {
-            width: (cabinetsHor * cabinetLength) + "px",
-            height: (cabinetsVer * cabinetWidth) + "px",
+            width: (cabinetsHor * cabinetWidth)/2 + "px",
+            height: (cabinetsVer * cabinetHeight)/2 + "px",
             backgroundColor: "DodgerBlue",
             display: "flex",
             flexWrap: "wrap"
           }
 
-          const screenWraper = {
-            display: "flex",
-            alignItems: "flex-end"
-          }
-
         return (
-        <div>
+        <div className="user-screen">
             <div style={cabinetSize}></div>
             <br></br>
-            <div style={screenWraper}> 
-                <FontAwesomeIcon icon={faMale}/>
-                <div style={userScreenStyle} className="user-screen">
+            <div className="screen-wraper" >
+            {/* <figure> 
+                <FontAwesomeIcon icon={faMale} 
+                preserveAspectRatio="xMidYMin slice" x="0" y="30" 
+                viewBox="0 0 100 100" width="160" height="60"             
+                // className="man-icon"
+                />
+            </figure>  */}
+                <div style={userScreenStyle} >
                 {this.renderCabinets()}
                 </div>
             </div>
-
-            
-
         </div> 
          );
     }
@@ -63,4 +62,12 @@ class UserScreen extends Component {
  
 export default UserScreen;
 
+// The value of the viewBox attribute is a list of four 
+// numbers: min-x, min-y, width and height. 
+// The numbers separated by whitespace and/or a comma, which specify 
+// a rectangle in user space which is mapped to the bounds of the viewport 
+// established for the associated SVG element (not the browser viewport).
 
+
+// resize: "none",
+// overflow: "inherit"
