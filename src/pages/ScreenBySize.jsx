@@ -49,11 +49,9 @@ class ScreenBySize extends Component {
          cabinetsVer={this.props.cabinetsVer}
          cabinetPitch={this.props.cabinetPitch}
          screenTechData={this.props.screenTechData}
-         
          />
       </Col> 
-
-
+      
       </Row>
     </div>
 

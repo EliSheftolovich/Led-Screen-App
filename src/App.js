@@ -22,6 +22,8 @@ class App extends React.Component {
         cabinetPitch: 500/128,
         cabinetsHor: 10,
         cabinetsVer: 5,
+        specId: '',
+        userId: '',
         activeUser:{
           "id": 1,
           "fname": "Eli",
@@ -38,7 +40,6 @@ class App extends React.Component {
     handleLogout = () => {
       this.setState({activeUser: null})
     }
-
 
     cabinetWidthChange = (e) => {
       this.setState({
@@ -76,13 +77,6 @@ class App extends React.Component {
         })
       }
     }
-    
-    changeCabinetTo60 = (e) =>{
-      this.setState({
-        cabinetWidth: 60,
-        cabinetHeight: 60
-      })
-    }
 
     render() {
         const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
@@ -103,7 +97,8 @@ class App extends React.Component {
         const screenOptView = cabinetPitch * 1.9;
     
         const screenTechData = {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
-          screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView, screenOptView}
+          screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView,
+          screenOptView, cabinetPitch}
 
         return (
             <div >
@@ -161,7 +156,7 @@ class App extends React.Component {
 
                                 <Route exact path="/PersonalArea">
                                     <Col xs={10} >
-                                        <PersonalArea activeUser={this.state.activeUser}/>
+                                        <PersonalArea activeUser={this.state.activeUser} screenTechData={screenTechData}/>
                                     </Col>
                                 </Route>
                                 <Route exact path="/login">
@@ -171,7 +166,7 @@ class App extends React.Component {
                                 </Route>
                                 <Route exact path="/signup">
                                     <Col xs={10} >
-                                    <SignupPage handleLogin={this.handleLogin}/>
+                                    <SignupPage/>
                                     </Col>
                                 </Route>
 
