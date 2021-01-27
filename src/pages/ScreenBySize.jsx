@@ -14,7 +14,7 @@ class ScreenBySize extends Component {
     
     return ( 
     <div>
-      <h3>Screen By Size</h3>
+      <h3> בחר מסך לד</h3>
       <Row>
         <Col>
         <UserForm 

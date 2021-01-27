@@ -14,7 +14,6 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 
 
-
 class App extends React.Component {
 
     state = {
@@ -26,12 +25,11 @@ class App extends React.Component {
         activeUser:{
           "id": 1,
           "fname": "Eli",
-          "lname": "Doe",
+          "lname": "Sheftolovich",
           "email": "elishafto@gmail.com",
-          "pwd": "123"
+          "pwd": "123",
+          "userId": 1
       }
-
-    
     };
 
     handleLogin = (userObj) => {
@@ -108,9 +106,9 @@ class App extends React.Component {
           screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView, screenOptView}
 
         return (
-            <div>
+            <div >
                 <HashRouter>
-                    <Container fluid>
+                    <Container>
                         <Row>
                             <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
                                 <Col xs={2} >

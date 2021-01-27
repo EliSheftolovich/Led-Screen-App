@@ -10,18 +10,16 @@ import './AppNavbar.css';
         return ( 
           <div className="nav">
     <Navbar className="flex-column" >
+    {signupEl}
      {loginEl}
       <Nav.Link href="/#/PersonalArea">אזור אישי</Nav.Link>
       <Nav.Link href="/#/ScreenBySize">מסך לד לפי מידות</Nav.Link>
       <Nav.Link href="/#/ScreenByAngle">מסך לד לפי זוית</Nav.Link>
       <Nav.Link href="/#/Info">הסבר על מסכי לד</Nav.Link>
       <Nav.Link href="/#/ContactUs">צור קשר</Nav.Link>
-      {signupEl}
+      
       {logoutEl}
       <Nav className="ml-auto">
-        
-
-       
 
     </Nav>
     </Navbar>
