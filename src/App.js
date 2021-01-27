@@ -12,9 +12,20 @@ import PersonalArea from './pages/PrersonalArea';
 import AppNavbar from './comp/AppNavbar';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import specJSON from './data/specs.json';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    let specs;
+    if(localStorage.getItem('localSpecs')) {
+      specs = JSON.parse(localStorage.getItem('localSpecs'));
+    }
+    else{
+      specs = specJSON;
+    }
+  }
 
     state = {
         cabinetWidth: 50,
@@ -22,6 +33,7 @@ class App extends React.Component {
         cabinetPitch: 500/128,
         cabinetsHor: 10,
         cabinetsVer: 5,
+        specs: [],
         specId: '',
         userId: '',
         activeUser:{
@@ -32,8 +44,33 @@ class App extends React.Component {
           "pwd": "123",
           "userId": 1
       }
+        // activeUser: null
     };
 
+    // addNewSpec = (specObj)=>{
+    //   this.setState({specs: this.state.specs.concat(specObj)});
+    //   localStorage.setItem('localSpecs', JSON.stringify(
+    //     this.state.specs.concat(specObj)
+    //   ))
+    // }
+
+    addSpec = () =>{  
+      console.log("addSpec clicked")
+      if (this.state.activeUser != (null || undefined)) {
+        const newSpec = this.computeSpecs();
+        newSpec.userId= this.state.activeUser.id;
+        newSpec.id= this.state.specs.length + 1;
+        const newSpecArr= [newSpec];
+        this.setState({
+          specs: this.state.specs.concat(newSpecArr)
+         })
+      }
+      else {
+        alert("יש להתחבר כמשתמש רשום  בשביל לגשת לאזור האישי")
+      }
+
+      }
+       
     handleLogin = (userObj) => {
       this.setState({activeUser: userObj})
     }
@@ -78,32 +115,40 @@ class App extends React.Component {
       }
     }
 
-    render() {
-        const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
+    computeSpecs = () => {
+      const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
 
-        const screenLength= cabinetsHor*cabinetWidth/100;  // Meters
-        const screenHigth = cabinetsVer*cabinetHeight/100;
-        const screenSize = `${screenLength} * ${screenHigth}`;
-        const screenHorRes = screenLength * 1000 / cabinetPitch;
-        const screenVerRes = screenHigth * 1000 / cabinetPitch;
-        const screenResolution = `${screenHorRes} *  ${screenVerRes}`;
-        const screenRatio = screenLength / screenHigth;
-        const screenDiagonal = Math.pow((Math.pow((screenLength / 0.0254), 2) * Math.pow((screenHigth / 0.0254), 2)), 1/2); // inch
-        const ScreenSqm = screenLength*screenHigth;
-        const screenMaxPowerCons = ScreenSqm * 500;  // Watt
-        const screenAvPowerCons = ScreenSqm * 200;
-        const screenWeigth = ScreenSqm * 36;  //kg
-        const screenMinView = cabinetPitch * 1.1; //meters
-        const screenOptView = cabinetPitch * 1.9;
-    
-        const screenTechData = {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
+      const screenLength= cabinetsHor*cabinetWidth/100;  // Meters
+      const screenHigth = cabinetsVer*cabinetHeight/100;
+      const screenSize = `${screenLength} * ${screenHigth}`;
+      const screenHorRes = screenLength * 1000 / cabinetPitch;
+      const screenVerRes = screenHigth * 1000 / cabinetPitch;
+      const screenResolution = `${screenHorRes} *  ${screenVerRes}`;
+      const screenRatio = screenLength / screenHigth;
+      const screenDiagonal = Math.sqrt((Math.pow((screenLength / 0.0254), 2) + Math.pow((screenHigth / 0.0254), 2))); // inch
+      const ScreenSqm = screenLength*screenHigth;
+      const screenMaxPowerCons = ScreenSqm * 500;  // Watt
+      const screenAvPowerCons = ScreenSqm * 200;
+      const screenWeigth = ScreenSqm * 36;  //kg
+      const screenMinView = cabinetPitch * 1.1; //meters
+      const screenOptView = cabinetPitch * 1.9;
+  
+        return {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
           screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView,
           screenOptView, cabinetPitch}
+    }
+
+
+    render() {
+      // console.log(this.state.specs)
+      const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
+
+      const screenTechData = this.computeSpecs();
 
         return (
             <div >
                 <HashRouter>
-                    <Container>
+                    <Container fluid>
                         <Row>
                             <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
                                 <Col xs={2} >
@@ -132,6 +177,7 @@ class App extends React.Component {
                                                 cabinetPitch={cabinetPitch}
                                                 screenTechData={screenTechData}
                                                 activeUser={this.state.activeUser}
+                                                addSpec={this.addSpec}
                                         />
                                     </Col>
                                 </Route>
@@ -156,7 +202,11 @@ class App extends React.Component {
 
                                 <Route exact path="/PersonalArea">
                                     <Col xs={10} >
-                                        <PersonalArea activeUser={this.state.activeUser} screenTechData={screenTechData}/>
+                                        <PersonalArea 
+                                        activeUser={this.state.activeUser} screenTechData={screenTechData} 
+                                        newSpecs={this.state.specs} check={this.state.cabinetWidth}
+
+                                        />
                                     </Col>
                                 </Route>
                                 <Route exact path="/login">

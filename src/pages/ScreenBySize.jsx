@@ -28,6 +28,7 @@ class ScreenBySize extends Component {
     cabinetsHor={this.props.cabinetsHor}
     cabinetPitchChange={this.props.cabinetPitchChange} 
     cabinetPitch={this.props.cabinetPitch}
+    addSpec={this.props.addSpec}
         />
         </Col>
 
@@ -35,7 +36,7 @@ class ScreenBySize extends Component {
         <UserResult screenTechData={this.props.screenTechData}/>
         </Col> 
 
-        <Col xs={4}>
+        <Col>
         <Usertips screenTechData={this.props.screenTechData}/>
       </Col> 
       </Row>
@@ -51,7 +52,7 @@ class ScreenBySize extends Component {
          screenTechData={this.props.screenTechData}
          />
       </Col> 
-      
+
       </Row>
     </div>
 

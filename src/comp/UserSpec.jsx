@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Table } from 'react-bootstrap';
+import { Col, Row, Table } from 'react-bootstrap';
 
 class UserSpec extends Component {
     render() { 
@@ -13,8 +13,8 @@ class UserSpec extends Component {
           }
 
         return (
-        <div>
 <Col lg={4} md={6} sm={12}>
+
 <h6>נתונים טכניים</h6>
 
 <Table striped bordered hover variant="light">
@@ -67,10 +67,19 @@ class UserSpec extends Component {
 
   </tbody>
 </Table>
+<Row>
+<Col>
+<button className="btn btn-outline-success mt-2">קבל הערכת מחיר למפרט ממספר ספקים</button>
+</Col>
+<Col>
+<button className="btn btn-outline-secondary mt-2">הסר מפרט</button>
+</Col>
+</Row>
+
 
 
   </Col>
-        </div>  
+
         );
     }
 }

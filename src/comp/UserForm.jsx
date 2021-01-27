@@ -85,19 +85,11 @@ class UserForm extends Component {
                 min="2" max="30"
                 size="sm" type="number" />
             </Form.Group>
-
             </Form>
 
-            <Row>
-                <Col>
-                <button className="btn btn-light mt-2">שמור מפרט באזור האישי</button>
-                </Col>
-
-                <Col>
-                <button className="btn btn-primary mt-2">קבל הערכת מחיר ממספר ספקים</button>
-                </Col>
-            </Row>
-
+             <button 
+                onClick={this.props.addSpec}
+                className="btn btn-primary mt-2">שמור מפרט באזור האישי</button>
 
             </div>
             

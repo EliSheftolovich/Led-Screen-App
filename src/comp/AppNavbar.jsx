@@ -9,12 +9,12 @@ import './AppNavbar.css';
     const logoutEl = (activeUser) ?  <Nav.Link onClick={handleLogout}>התנתק</Nav.Link> : null;
         return ( 
           <div className="nav">
-    <Navbar className="flex-column" >
+    <Navbar className="flex-column mt-4">
     {signupEl}
      {loginEl}
-      <Nav.Link href="/#/PersonalArea">אזור אישי</Nav.Link>
       <Nav.Link href="/#/ScreenBySize">מסך לד לפי מידות</Nav.Link>
-      <Nav.Link href="/#/ScreenByAngle">מסך לד לפי זוית</Nav.Link>
+      <Nav.Link href="/#/PersonalArea">אזור אישי</Nav.Link>
+      {/* <Nav.Link href="/#/ScreenByAngle">מסך לד לפי זוית</Nav.Link> */}
       <Nav.Link href="/#/Info">הסבר על מסכי לד</Nav.Link>
       <Nav.Link href="/#/ContactUs">צור קשר</Nav.Link>
       

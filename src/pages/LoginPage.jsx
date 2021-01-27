@@ -19,7 +19,7 @@ class LoginPage extends React.Component {
         for( let i = 0; i< users.length; i++) {
             if( users[i].pwd == this.state.pwd && users[i].email == this.state.email) {
                 this.props.handleLogin(users[i]);
-                window.location.href = '/#/PersonalArea'
+                window.location.href = '/#/ScreenBySize'
                 return;
                 // We will login the user
                 // return the found user
@@ -36,27 +36,28 @@ class LoginPage extends React.Component {
         // 3. update the activeUser state in <App> (using handleLogin() prop)
         return (
             <div className="c-login-page">
-                <h1>Login</h1>
+                <h1>התחבר</h1>
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>כתובת email:</Form.Label>
                 <Form.Control type="email" 
                 onChange={(event) => {this.setState({email: event.target.value})}} 
-                placeholder="Enter email" value={this.state.email} />
+                placeholder="הכנס כתובת email" value={this.state.email} />
                 </Form.Group>
                 
                 <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>ססמא:</Form.Label>
                 <Form.Control type="password"
                  onChange={(event) => {this.setState({pwd: event.target.value})}} 
-                 placeholder="Password"  value={this.state.pwd}/>
+                 placeholder="ססמא"  value={this.state.pwd}/>
                 </Form.Group>
-                <Button onClick={this.validateLogin} block variant="success" type="button">
-                Login
+                <Button onClick={this.validateLogin}  variant="primary" type="button" className= "m-2">
+                התחבר
+                </Button>
+                <Button href="/#/signup" variant="primary" type="button" className= "m-2">
+                הרשם
                 </Button>
             </Form> 
-            <br/>
-            <a href="/#/signup">To Signup</a>
             </div>
             )
         }

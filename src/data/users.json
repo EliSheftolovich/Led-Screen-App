@@ -15,5 +15,13 @@
         "email": "sara@sara.com",
         "pwd": "abc",
         "userId": "2"
+    },
+    {
+        "id": 3,
+        "fname": "Tiger",
+        "lname": "King",        
+        "email": "tiger@king.com",
+        "pwd": "123",
+        "userId": "3"
     }
 ]
