@@ -17,9 +17,9 @@ class PersonalArea extends Component {
   }
   // console.log("inside PersonalArea" + this.props.newSpecs)
 
-  const filteredSpecs = this.props.newSpecs.filter( (specs) => { 
-    return this.props.activeUser.id === specs.userId;
-});
+  const filteredSpecs = this.props.newSpecs.filter( (specs) =>
+     this.props.activeUser.id === specs.userId
+);
 const specElements = filteredSpecs.map((specs) => {
   return (<UserSpec screenTechData={specs} key={uuid()} removeSpec={this.props.removeSpec}/>);
 });
