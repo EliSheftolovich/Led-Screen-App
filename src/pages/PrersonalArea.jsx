@@ -11,16 +11,17 @@ class PersonalArea extends Component {
   }
 
   render() { 
+    
     if( ! this.props.activeUser){
       return <Redirect push to="/login" />
   }
-  console.log("inside PersonalArea" + this.props.newSpecs)
+  // console.log("inside PersonalArea" + this.props.newSpecs)
 
   const filteredSpecs = this.props.newSpecs.filter( (specs) => { 
     return this.props.activeUser.id === specs.userId;
 });
 const specElements = filteredSpecs.map((specs) => {
-  return (<UserSpec screenTechData={specs} key={uuid()}/>);
+  return (<UserSpec screenTechData={specs} key={uuid()} removeSpec={this.props.removeSpec}/>);
 });
 
     return ( 

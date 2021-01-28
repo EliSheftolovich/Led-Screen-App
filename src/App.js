@@ -1,7 +1,9 @@
 import './App.css';
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Alert, Col, Container, Row } from 'react-bootstrap';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import uuid from 'react-uuid';
+
 
 import LandingPage from './pages/LandingPage';
 import Info from './pages/Info';
@@ -18,13 +20,13 @@ import specJSON from './data/specs.json';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    let specs;
-    if(localStorage.getItem('localSpecs')) {
-      specs = JSON.parse(localStorage.getItem('localSpecs'));
-    }
-    else{
-      specs = specJSON;
-    }
+    // let specs;
+    // if(localStorage.getItem('localSpecs')) {
+    //   specs = JSON.parse(localStorage.getItem('localSpecs'));
+    // }
+    // else{
+    //   specs = specJSON;
+    // }
   }
 
     state = {
@@ -34,8 +36,6 @@ class App extends React.Component {
         cabinetsHor: 10,
         cabinetsVer: 5,
         specs: [],
-        specId: '',
-        userId: '',
         activeUser:{
           "id": 1,
           "fname": "Eli",
@@ -54,12 +54,24 @@ class App extends React.Component {
     //   ))
     // }
 
+
+    
+    removeSpec = (specToRemoveId) => {
+      // console.log("removeSpec clicked")
+      let newSpecs = [];
+      newSpecs = this.state.specs.filter (s => s.id !== specToRemoveId);
+      this.setState({specs : newSpecs});
+    };
+
     addSpec = () =>{  
-      console.log("addSpec clicked")
-      if (this.state.activeUser != (null || undefined)) {
+      // console.log("addSpec clicked")
+      if (this.state.specs.length > 5){
+       alert(" ניתן להוסיף עד שישה מפרטים")
+      }
+      else if (this.state.activeUser != (null || undefined)) {
         const newSpec = this.computeSpecs();
         newSpec.userId= this.state.activeUser.id;
-        newSpec.id= this.state.specs.length + 1;
+        newSpec.id= uuid();
         const newSpecArr= [newSpec];
         this.setState({
           specs: this.state.specs.concat(newSpecArr)
@@ -70,7 +82,8 @@ class App extends React.Component {
       }
 
       }
-       
+
+      
     handleLogin = (userObj) => {
       this.setState({activeUser: userObj})
     }
@@ -203,9 +216,9 @@ class App extends React.Component {
                                 <Route exact path="/PersonalArea">
                                     <Col xs={10} >
                                         <PersonalArea 
-                                        activeUser={this.state.activeUser} screenTechData={screenTechData} 
-                                        newSpecs={this.state.specs} check={this.state.cabinetWidth}
-
+                                        activeUser={this.state.activeUser}
+                                        newSpecs={this.state.specs} 
+                                        removeSpec={this.removeSpec}
                                         />
                                     </Col>
                                 </Route>
@@ -226,31 +239,9 @@ class App extends React.Component {
                 </HashRouter>
 
             </div>
-
         );
     }
 }
 
 
 export default App;
-
-    // function App() {
-    //   return (
-    //     <div className="App">
-    //       <header className="App-header">
-    //         <img src={logo} className="App-logo" alt="logo" />
-    //         <p>
-    //           Edit <code>src/App.js</code> and save to reload.
-    //         </p>
-    //         <a
-    //           className="App-link"
-    //           href="https://reactjs.org"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //         >
-    //           Learn React
-    //         </a>
-    //       </header>
-    //     </div>
-    //   );
-    // }

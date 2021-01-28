@@ -5,7 +5,7 @@ class UserSpec extends Component {
     render() { 
         const {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
             screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons,
-             screenWeigth, screenMinView, screenOptView, cabinetPitch} = this.props.screenTechData 
+             screenWeigth, screenMinView, screenOptView, cabinetPitch, id} = this.props.screenTechData 
     
           const resultsStyle = {
             direction: "ltr",
@@ -72,7 +72,9 @@ class UserSpec extends Component {
 <button className="btn btn-outline-success mt-2">קבל הערכת מחיר למפרט ממספר ספקים</button>
 </Col>
 <Col>
-<button className="btn btn-outline-secondary mt-2">הסר מפרט</button>
+<button 
+onClick= {()=> this.props.removeSpec(id)}
+className="btn btn-outline-secondary mt-2">הסר מפרט</button>
 </Col>
 </Row>
 
