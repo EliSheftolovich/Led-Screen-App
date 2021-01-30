@@ -4,13 +4,14 @@ import Like from '../comp/common/like';
 import { getArticles } from '../data/articles';
 import Highlighter from "react-highlight-words";
 import './info.css';
-
+import _ from 'lodash';
 
 
 class Info extends Component {
   state={
     articles: getArticles(),
-    searchQuery: ""
+    searchQuery: "",
+    sortColumn: {path: 'title', order: 'asc'}
   }
 
   handleSearch = e => {
@@ -29,15 +30,28 @@ class Info extends Component {
     this.setState({articles});
   }
 
+  handleSort = path => {
+const sortColumn = {...this.state.sortColumn};
+if (sortColumn.path === path)
+sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
+else {
+  sortColumn.path = path;
+  sortColumn.order ="asc";
+}
+
+this.setState({sortColumn})
+};
 
   render() { 
 
-    const {articles, searchQuery} =this.state;
+    const {articles, searchQuery, sortColumn} =this.state;
 
-    const currentArticles = (searchQuery.length === 0)
+    const filteredArticles = (searchQuery.length === 0)
     ?  articles
     :articles.filter(article => (article.title.startsWith(searchQuery))
      || (article.text.includes(searchQuery)));
+
+     const sortedArticles =_.orderBy(filteredArticles, [sortColumn.path], [sortColumn.order]);
 
     return ( 
     <div>
@@ -46,7 +60,7 @@ class Info extends Component {
       <Table>
         <thead>
           <tr>
-            <th>נושא</th>
+            <th onClick={()=>this.handleSort('title')}>נושא</th>
             <th></th>
             <th>
               <Row>
@@ -57,11 +71,11 @@ class Info extends Component {
                 </Col>
               </Row>
             </th>
-            <th>קטגוריה</th>
+            <th onClick={()=>this.handleSort('subject')}>קטגוריה</th>
           </tr>
         </thead>
         <tbody>
-      {currentArticles.map(article => (
+      {sortedArticles.map(article => (
       <tr key={article._id}>
         <td>
         <Highlighter
