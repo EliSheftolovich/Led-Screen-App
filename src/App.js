@@ -193,21 +193,16 @@ this.setState({sortColumn})
             <div >
                 <HashRouter>
                     <Container fluid>
-                        <Row>
+                      <Row>
                             <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
-                                <Col xs={2} >
                                 <AppNavbar handleLogout={this.handleLogout} activeUser={this.state.activeUser} />
-                                </Col>
                             </Route>
-                            <Switch>
 
+                          <Switch>
                                 <Route exact path="/">
-                                    <Col >
                                         <LandingPage />
-                                    </Col>
                                 </Route>
                                 <Route exact path="/ScreenBySize">
-                                    <Col xs={10}>
                                         <ScreenBySize
                                                 cabinetWidthChange={this.cabinetWidthChange} 
                                                 cabinetWidth={cabinetWidth}
@@ -223,17 +218,13 @@ this.setState({sortColumn})
                                                 activeUser={this.state.activeUser}
                                                 addSpec={this.addSpec}
                                         />
-                                    </Col>
                                 </Route>
 
                                 <Route exact path="/ScreenByAngle">
-                                    <Col xs={10} >
                                         <ScreenByAngle />
-                                    </Col>
                                 </Route>
 
                                 <Route exact path="/Info">
-                                    <Col xs={10} >
                                         <Info
                                         articles={this.state.articles}
                                         searchQuery={this.state.searchQuery}
@@ -242,38 +233,28 @@ this.setState({sortColumn})
                                         handleSort={this.handleSort}
                                         handleLike={this.handleLike}
                                         />
-                                    </Col>
                                 </Route>
 
                                 <Route exact path="/ContactUs">
-                                    <Col xs={10} >
                                         <ContactUs />
-                                    </Col>
                                 </Route>
 
                                 <Route exact path="/PersonalArea">
-                                    <Col xs={10} >
                                         <PersonalArea 
                                         activeUser={this.state.activeUser}
                                         newSpecs={this.state.specs} 
                                         removeSpec={this.removeSpec}
                                         articles={this.state.articles}
                                         />
-                                    </Col>
                                 </Route>
                                 <Route exact path="/login">
-                                    <Col xs={10} >
                                     <LoginPage handleLogin={this.handleLogin}/>
-                                    </Col>
                                 </Route>
                                 <Route exact path="/signup">
-                                    <Col xs={10} >
                                     <SignupPage/>
-                                    </Col>
                                 </Route>
-
-                            </Switch>
-                        </Row>
+                          </Switch>
+                      </Row>
                     </Container>
                 </HashRouter>
 

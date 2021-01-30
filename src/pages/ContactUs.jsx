@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Col, Form} from 'react-bootstrap';
 
 class ContactUs extends Component {
   render() { 
@@ -7,7 +7,7 @@ class ContactUs extends Component {
     
       
 
-      <div style={{width: "500px", margin:"auto"}}>
+      <Col xs={10} style={{width: "500px", margin:"auto"}}>
       <h3>צור קשר</h3>
             <Form>
 
@@ -37,7 +37,7 @@ class ContactUs extends Component {
             </Button>
             </Form>
             
-            </div>
+            </Col>
 
       );
   }

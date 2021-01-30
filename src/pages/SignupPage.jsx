@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Form } from 'react-bootstrap';
 
 class SignupPage extends React.Component {
     render() {
         return (
-            <div style={{width: "500px", margin:"auto"}}>
+            <Col xs={10} style={{width: "500px", margin:"auto"}}>
                 <h3>הרשם לאתר</h3>
 
             <div><a href="/#/ScreenBySize"> חזור לעמוד הראשי</a></div>
@@ -36,7 +36,7 @@ class SignupPage extends React.Component {
             </Button>
             </Form>
             
-            </div>
+            </Col>
         )
     }
 }

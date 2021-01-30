@@ -13,7 +13,7 @@ class ScreenBySize extends Component {
   render() { 
     
     return ( 
-    <div>
+<Col xs={10}>
       <h3> בחר מסך לד</h3>
       <Row>
         <Col>
@@ -54,8 +54,7 @@ class ScreenBySize extends Component {
       </Col> 
 
       </Row>
-    </div>
-
+      </Col>
       );
   }
 }

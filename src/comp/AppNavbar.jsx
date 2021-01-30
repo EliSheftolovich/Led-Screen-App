@@ -1,4 +1,4 @@
-import {Nav, Navbar } from 'react-bootstrap';
+import {Col, Nav, Navbar } from 'react-bootstrap';
 import './AppNavbar.css';
 
   const AppNavbar = function(props) {
@@ -8,14 +8,14 @@ import './AppNavbar.css';
     const signupEl = ( ! activeUser) ?  <Nav.Link href="/#/signup">הרשם</Nav.Link>  : null;
     const logoutEl = (activeUser) ?  <Nav.Link onClick={handleLogout}>התנתק</Nav.Link> : null;
         return ( 
-          <div className="nav">
+  <Col xs={2} className="nav" >
     <Navbar className="flex-column mt-4">
     {signupEl}
      {loginEl}
       <Nav.Link href="/#/ScreenBySize">מסך לד לפי מידות</Nav.Link>
       <Nav.Link href="/#/PersonalArea">אזור אישי</Nav.Link>
       {/* <Nav.Link href="/#/ScreenByAngle">מסך לד לפי זוית</Nav.Link> */}
-      <Nav.Link href="/#/Info">הסבר על מסכי לד</Nav.Link>
+      <Nav.Link href="/#/Info">הסברים על מסכי לד</Nav.Link>
       <Nav.Link href="/#/ContactUs">צור קשר</Nav.Link>
       
       {logoutEl}
@@ -23,7 +23,8 @@ import './AppNavbar.css';
 
     </Nav>
     </Navbar>
-          </div>
+
+  </Col>
           
          );
     

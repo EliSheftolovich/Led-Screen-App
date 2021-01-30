@@ -34,8 +34,8 @@ class Info extends Component {
      const sortedArticles =_.orderBy(filteredArticles, [sortColumn.path], [sortColumn.order]);
 
     return ( 
-    <div>
-      <h3>info with Search box</h3>
+      <Col xs={10} >
+      <h3>הסברים על מסכי לד</h3>
       
       <Table>
         <thead>
@@ -85,8 +85,7 @@ class Info extends Component {
         </tbody>
       </Table>
 
-    </div>
-
+</Col>
       );
   }
 }

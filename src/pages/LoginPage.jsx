@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Col } from 'react-bootstrap';
 import users from '../data/users.json';
 
 class LoginPage extends React.Component {
@@ -35,7 +35,7 @@ class LoginPage extends React.Component {
         // 2. if the user password matches
         // 3. update the activeUser state in <App> (using handleLogin() prop)
         return (
-            <div className="c-login-page">
+            <Col xs={10} className="c-login-page">
                 <h1>התחבר</h1>
             <Form>
                 <Form.Group controlId="formBasicEmail">
@@ -58,7 +58,7 @@ class LoginPage extends React.Component {
                 הרשם
                 </Button>
             </Form> 
-            </div>
+            </Col>
             )
         }
     }

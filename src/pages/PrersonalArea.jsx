@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Table } from 'react-bootstrap';
+import { Col, Row, Table } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import UserSpec from '../comp/UserSpec';
 import uuid from 'react-uuid';
@@ -33,7 +33,7 @@ const specElements = filteredSpecs.map((specs) => {
 });
 
     return ( 
-    <div>
+      <Col xs={10} >
       <h3>אזור אישי</h3>
       <Table size="sm" variant="info">
         <thead>
@@ -48,7 +48,7 @@ const specElements = filteredSpecs.map((specs) => {
       <Row>
         {specElements}
       </Row>
-    </div>
+    </Col>
 
       );
   }
