@@ -53,23 +53,17 @@ class Usertips extends Component {
           notifications.push(<div> המסך הוא בתחום יחס תמונה 4:3</div>)
         }
 
-
-
-
         return (
             <div>
-<h6>תיבת המלצות</h6>
-<Table striped bordered hover variant="light">
-  <tbody>
-      {notifications.map(notification => (
-        <tr key={uuid()}>
-          <td>{notification}</td>
-        </tr>
-      )
-
-      )}
-  </tbody>
-</Table>
+              <h6>תיבת המלצות</h6>
+              <Table striped bordered hover variant="light">
+                <tbody>
+                    {notifications.map(notification => (
+                      <tr key={uuid()}>
+                        <td>{notification}</td>
+                      </tr>))}
+                </tbody>
+              </Table>
             </div>
           );
     }

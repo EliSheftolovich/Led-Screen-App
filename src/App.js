@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { Alert, Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import uuid from 'react-uuid';
 
@@ -17,20 +17,20 @@ import SignupPage from './pages/SignupPage';
 
 import { getArticles } from './data/articles';
 
-import specJSON from './data/specs.json';
+// import specJSON from './data/specs.json';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    // let specs;
-    // if(localStorage.getItem('localSpecs')) {
-    //   specs = JSON.parse(localStorage.getItem('localSpecs'));
-    // }
-    // else{
-    //   specs = specJSON;
-    // }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   let specs;
+  //   if(localStorage.getItem('localSpecs')) {
+  //     specs = JSON.parse(localStorage.getItem('localSpecs'));
+  //   }
+  //   else{
+  //     specs = specJSON;
+  //   }
+  // }
 
     state = {
         cabinetWidth: 50,
@@ -59,6 +59,7 @@ class App extends React.Component {
     //     this.state.specs.concat(specObj)
     //   ))
     // }
+
 
 /// methods for Info Comp :
 handleSearch = e => {
@@ -245,6 +246,7 @@ this.setState({sortColumn})
                                         newSpecs={this.state.specs} 
                                         removeSpec={this.removeSpec}
                                         articles={this.state.articles}
+                                        removeLinkedArticle={this.handleLike}
                                         />
                                 </Route>
                                 <Route exact path="/login">

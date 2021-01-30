@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'react-uuid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faMale } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import {faMale } from '@fortawesome/free-solid-svg-icons';
 
 import './UserScreen.css';
 

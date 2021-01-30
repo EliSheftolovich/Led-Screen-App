@@ -54,8 +54,10 @@ class Info extends Component {
               </Row>
             </th>
             <th onClick={()=>this.props.handleSort('subject')}>
-            <span>{this.renderSortIcon('subject')}</span>
+            <div style={{display: "flex"}}>
+              {this.renderSortIcon('subject')}
             קטגוריה
+            </div>
             </th>
           </tr>
         </thead>

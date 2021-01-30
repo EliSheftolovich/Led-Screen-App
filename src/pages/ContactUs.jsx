@@ -4,11 +4,10 @@ import { Button, Col, Form} from 'react-bootstrap';
 class ContactUs extends Component {
   render() { 
     return ( 
-    
-      
+        <Col xs={10} >
 
-      <Col xs={10} style={{width: "500px", margin:"auto"}}>
-      <h3>צור קשר</h3>
+          <div style={{width: "500px", margin:"auto"}}>
+          <h3>צור קשר</h3>
             <Form>
 
             <Form.Group controlId="Fname">
@@ -37,7 +36,8 @@ class ContactUs extends Component {
             </Button>
             </Form>
             
-            </Col>
+            </div>
+        </Col>
 
       );
   }
