@@ -5,6 +5,8 @@ import { getArticles } from '../data/articles';
 import Highlighter from "react-highlight-words";
 import './info.css';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
 
 
 class Info extends Component {
@@ -38,9 +40,15 @@ else {
   sortColumn.path = path;
   sortColumn.order ="asc";
 }
-
 this.setState({sortColumn})
 };
+
+renderSortIcon = (title) => {
+  const {sortColumn} = this.state;
+if (title !== sortColumn.path) return null;
+if (sortColumn.order === 'asc') return <FontAwesomeIcon icon={faSortDown} style={{cursor:"pointer"}}/>;
+return <FontAwesomeIcon icon={faSortUp} style={{cursor:"pointer"}}/>;
+}
 
   render() { 
 
@@ -60,7 +68,9 @@ this.setState({sortColumn})
       <Table>
         <thead>
           <tr>
-            <th onClick={()=>this.handleSort('title')}>נושא</th>
+            <th onClick={()=>this.handleSort('title')}>נושא
+            {this.renderSortIcon('title')}
+            </th>
             <th></th>
             <th>
               <Row>
@@ -71,7 +81,9 @@ this.setState({sortColumn})
                 </Col>
               </Row>
             </th>
-            <th onClick={()=>this.handleSort('subject')}>קטגוריה</th>
+            <th onClick={()=>this.handleSort('subject')}>קטגוריה
+            {this.renderSortIcon('subject')}
+            </th>
           </tr>
         </thead>
         <tbody>
