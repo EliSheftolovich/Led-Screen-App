@@ -80,7 +80,6 @@ class App extends React.Component {
       else {
         alert("יש להתחבר כמשתמש רשום  בשביל לגשת לאזור האישי")
       }
-
       }
 
       

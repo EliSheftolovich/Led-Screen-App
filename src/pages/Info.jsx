@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Col, Form, Row, Table } from 'react-bootstrap';
 import Like from '../comp/common/like';
 import { getArticles } from '../data/articles';
+import Highlighter from "react-highlight-words";
+import './info.css';
+
+
 
 class Info extends Component {
   state={
@@ -27,6 +31,7 @@ class Info extends Component {
 
 
   render() { 
+
     const {articles, searchQuery} =this.state;
 
     const currentArticles = (searchQuery.length === 0)
@@ -58,11 +63,23 @@ class Info extends Component {
         <tbody>
       {currentArticles.map(article => (
       <tr key={article._id}>
-        <td>{article.title}</td>
+        <td>
+        <Highlighter
+    highlightClassName="HighlightClass"
+    searchWords={[searchQuery]}
+    autoEscape={true}
+    textToHighlight= {article.title}/>
+         </td>
         <td><Like 
         liked={article.liked} 
         onClick={()=>this.handleLike(article)}/></td>
-        <td>{article.text}</td>
+        <td>
+        <Highlighter
+    highlightClassName="HighlightClass"
+    searchWords={[searchQuery]}
+    autoEscape={true}
+    textToHighlight={article.text}/>
+        </td>
         <td>{article.subject}</td>
       </tr>
       ))} 
