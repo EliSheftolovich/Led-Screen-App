@@ -3,9 +3,9 @@ import { Col, Form, Row, Table } from 'react-bootstrap';
 
 class UserSpec extends Component {
     render() { 
-        const {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
-            screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons,
-             screenWeigth, screenMinView, screenOptView, cabinetPitch, id} = this.props.screenTechData 
+        const {screenSize, screenResolution, screenRatio, screenDiagonal, ScreenSqm,
+           screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView, 
+           screenOptView, cabinetPitch, id} = this.props.screenTechData 
     
           const resultsStyle = {
             direction: "ltr",
@@ -14,9 +14,7 @@ class UserSpec extends Component {
 
         return (
 <Col lg={4} md={6} sm={12}>
-  <Form>
-
-
+ 
   <h6>נתונים טכניים</h6>
 
   <Table striped bordered hover variant="light">
@@ -79,8 +77,6 @@ class UserSpec extends Component {
     className="btn btn-outline-secondary mt-2">הסר מפרט</button>
     </Col>
   </Row>
-  </Form>
-
 
 </Col>
 

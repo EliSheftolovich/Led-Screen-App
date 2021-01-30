@@ -14,6 +14,9 @@ import PersonalArea from './pages/PrersonalArea';
 import AppNavbar from './comp/AppNavbar';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+
+import { getArticles } from './data/articles';
+
 import specJSON from './data/specs.json';
 
 
@@ -36,6 +39,9 @@ class App extends React.Component {
         cabinetsHor: 10,
         cabinetsVer: 5,
         specs: [],
+        articles: getArticles(),
+        searchQuery: "",
+        sortColumn: {path: 'title', order: 'asc'},
         activeUser:{
           "id": 1,
           "fname": "Eli",
@@ -54,8 +60,34 @@ class App extends React.Component {
     //   ))
     // }
 
+/// methods for Info Comp :
+handleSearch = e => {
+  this.setState({searchQuery: e.target.value})
+}
 
-    
+handleLike = article => {
+  const articles = [...this.state.articles];
+  const index = articles.indexOf(article);
+  articles[index] = {...articles[index]};
+  articles[index].liked = !articles[index].liked;
+  this.setState({articles});
+}
+
+handleSort = path => {
+const sortColumn = {...this.state.sortColumn};
+if (sortColumn.path === path)
+sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
+else {
+sortColumn.path = path;
+sortColumn.order ="asc";
+}
+this.setState({sortColumn})
+};
+
+
+//------Info Comp Methods end--------///
+  
+
     removeSpec = (specToRemoveId) => {
       // console.log("removeSpec clicked")
       let newSpecs = [];
@@ -202,7 +234,14 @@ class App extends React.Component {
 
                                 <Route exact path="/Info">
                                     <Col xs={10} >
-                                        <Info />
+                                        <Info
+                                        articles={this.state.articles}
+                                        searchQuery={this.state.searchQuery}
+                                        sortColumn={this.state.sortColumn}
+                                        handleSearch={this.handleSearch}
+                                        handleSort={this.handleSort}
+                                        handleLike={this.handleLike}
+                                        />
                                     </Col>
                                 </Route>
 
@@ -218,6 +257,7 @@ class App extends React.Component {
                                         activeUser={this.state.activeUser}
                                         newSpecs={this.state.specs} 
                                         removeSpec={this.removeSpec}
+                                        articles={this.state.articles}
                                         />
                                     </Col>
                                 </Route>

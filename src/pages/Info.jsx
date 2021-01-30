@@ -1,58 +1,30 @@
 import React, { Component } from 'react';
 import { Col, Form, Row, Table } from 'react-bootstrap';
 import Like from '../comp/common/like';
-import { getArticles } from '../data/articles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
 import Highlighter from "react-highlight-words";
 import './info.css';
 import _ from 'lodash';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
 
 
 class Info extends Component {
-  state={
-    articles: getArticles(),
-    searchQuery: "",
-    sortColumn: {path: 'title', order: 'asc'}
-  }
+  // state={
+  //   articles: getArticles(),
+  //   searchQuery: "",
+  //   sortColumn: {path: 'title', order: 'asc'}
+  // }
 
-  handleSearch = e => {
-    this.setState({searchQuery: e.target.value})
-  }
-
-  handleLike = article => {
-    const articles = [...this.state.articles];
-    // console.log(articles);
-    const index = articles.indexOf(article);
-    // console.log(index);
-    articles[index] = {...articles[index]};
-    // console.log(articles[index]);
-    articles[index].liked = !articles[index].liked;
-    // console.log(articles[index].liked);
-    this.setState({articles});
-  }
-
-  handleSort = path => {
-const sortColumn = {...this.state.sortColumn};
-if (sortColumn.path === path)
-sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
-else {
-  sortColumn.path = path;
-  sortColumn.order ="asc";
-}
-this.setState({sortColumn})
-};
-
-renderSortIcon = (title) => {
-  const {sortColumn} = this.state;
-if (title !== sortColumn.path) return null;
-if (sortColumn.order === 'asc') return <FontAwesomeIcon icon={faSortDown} style={{cursor:"pointer"}}/>;
-return <FontAwesomeIcon icon={faSortUp} style={{cursor:"pointer"}}/>;
-}
+  renderSortIcon = (title) => {
+    const {sortColumn} = this.props;
+    if (title !== sortColumn.path) return null;
+    if (sortColumn.order === 'asc') return <FontAwesomeIcon icon={faSortDown} style={{cursor:"pointer"}}/>;
+    return <FontAwesomeIcon icon={faSortUp} style={{cursor:"pointer"}}/>;
+    }
 
   render() { 
 
-    const {articles, searchQuery, sortColumn} =this.state;
+    const {articles, searchQuery, sortColumn} =this.props;
 
     const filteredArticles = (searchQuery.length === 0)
     ?  articles
@@ -68,21 +40,22 @@ return <FontAwesomeIcon icon={faSortUp} style={{cursor:"pointer"}}/>;
       <Table>
         <thead>
           <tr>
-            <th onClick={()=>this.handleSort('title')}>נושא
+            <th onClick={()=>this.props.handleSort('title')}>נושא
             {this.renderSortIcon('title')}
             </th>
-            <th></th>
+            <th>הקלק</th>
             <th>
               <Row>
-                <Col lg={4} sm={8}>
+                <Col sm={8}>
                 <Form.Control type="text" placeholder="חפש..."
-                value={this.state.searchQuery} onChange={this.handleSearch}
+                value={searchQuery} onChange={this.props.handleSearch}
                 />
                 </Col>
               </Row>
             </th>
-            <th onClick={()=>this.handleSort('subject')}>קטגוריה
-            {this.renderSortIcon('subject')}
+            <th onClick={()=>this.props.handleSort('subject')}>
+            <span>{this.renderSortIcon('subject')}</span>
+            קטגוריה
             </th>
           </tr>
         </thead>
@@ -98,7 +71,7 @@ return <FontAwesomeIcon icon={faSortUp} style={{cursor:"pointer"}}/>;
          </td>
         <td><Like 
         liked={article.liked} 
-        onClick={()=>this.handleLike(article)}/></td>
+        onClick={()=>this.props.handleLike(article)}/></td>
         <td>
         <Highlighter
     highlightClassName="HighlightClass"

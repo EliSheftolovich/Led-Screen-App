@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faHeart, faCircle, faHeartbeat, faBatteryEmpty, faScrewdriver, faCheckCircle, faChartArea, faForward } from '@fortawesome/free-solid-svg-icons'
+import {faHeart, faCircle} from '@fortawesome/free-solid-svg-icons'
 
 
 const Like = (props) => {
