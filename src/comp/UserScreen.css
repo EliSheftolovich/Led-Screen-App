@@ -1,22 +1,37 @@
 .user-screen {
-  /* background-color: rgb(169, 177, 177); */
-}
-
-.screen-wraper {
   display: flex;
-  /* align-items: flex-end; */
   justify-content: center;
-  /* display: grid; */
-  /* border: black solid 1px; */
-  width: 50vw;
-  height: 30vh;
-  /* resize: none; */
-  /* overflow: scroll; */
+  align-items: flex-start;
+  /* border: solid black 1px; */
+  height: 50vh;
 }
 
-.screen-wraper > * {
-  grid-area: 1/1;
+.screen-hor-wraper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: black solid 1px; */
+  height: 30vh;
 }
+
+.screen-ver-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 
+.horizontal-text {
+  border: black solid 1px;
+} */
+
+.vertical-text {
+  transform: rotate(90deg);
+  /* border: black solid 1px; */
+}
+
+/* .screen-wraper > * {
+  grid-area: 1/1;
+} */
 
 /* figure {
   display: block;

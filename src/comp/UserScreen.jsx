@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'react-uuid';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import {faMale } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faArrowLeft, faArrowRight, faMale } from '@fortawesome/free-solid-svg-icons';
 
 import './UserScreen.css';
 
@@ -23,13 +23,14 @@ class UserScreen extends Component {
 
     render() { 
         const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth } = this.props;
+        const {screenLength, screenHorRes, screenVerRes} = this.props.screenTechData;
 
-        const cabinetSize = {
-            backgroundColor: "DodgerBlue",
-            border: "1px solid black",
-            height: cabinetHeight,
-            width: cabinetWidth
-          };
+        // const cabinetSize = {
+        //     backgroundColor: "DodgerBlue",
+        //     border: "1px solid black",
+        //     height: cabinetHeight,
+        //     width: cabinetWidth
+        //   };
 
           let ratio = 3;
           if (cabinetsHor > 90 || cabinetsVer > 35) {ratio = 5.5}
@@ -43,26 +44,40 @@ class UserScreen extends Component {
             height: (cabinetsVer * cabinetHeight)/ratio + "px",
             backgroundColor: "DodgerBlue",
             display: "flex",
-            flexWrap: "wrap"
+            flexWrap: "wrap",
           }
+          const horizontalTextStyle = {
+            width: (cabinetsHor * cabinetWidth)/ratio + "px",
+            textAlign: "center",
+            minWidth: "150px"
+
+          };
+          const verticalTextStyle = {
+            width: (cabinetsVer * cabinetHeight)/ratio + "px",
+            textAlign: "center",
+            minWidth: "150px",
+            position: "relative",
+            right: "40px",
+            top: "-30px"
+          };
 
         return (
         <div className="user-screen">
-            {/* <div style={cabinetSize}></div> */}
-            {/* <br></br> */}
-            <div className="screen-wraper" >
-                
-            {/* <figure> 
-                <FontAwesomeIcon icon={faMale} 
-                preserveAspectRatio="xMidYMin slice" x="0" y="30" 
-                viewBox="0 0 100 100" width="160" height="60"             
-                // className="man-icon"
-                />
-            </figure>  */}
-            
-                <div style={userScreenStyle} >
-                {this.renderCabinets()}
+            <div className="screen-ver-wraper" >
+                <div className="vertical-text" style={verticalTextStyle}>
+                <FontAwesomeIcon icon={faArrowRight} />
+                <span className="m-1">{screenVerRes} פיקסלים </span>
+                <FontAwesomeIcon icon={faArrowLeft} />
                 </div>
+                     <div className="screen-hor-wraper" >  
+                        <div className="horizontal-text" style={horizontalTextStyle}>
+                        <FontAwesomeIcon icon={faArrowRight} />
+                        {/* <span className="mx-2">{screenLength} מטר</span> */}
+                        <span className="m-1">{screenHorRes} פיקסלים </span>
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                        </div>
+                        <div style={userScreenStyle} >{this.renderCabinets()}</div>
+                      </div>
             </div>
         </div> 
          );
