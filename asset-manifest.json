@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/EliSheftolovich/Led-Screen-App/static/css/main.6157b346.chunk.css",
+    "main.js": "/EliSheftolovich/Led-Screen-App/static/js/main.4c249f89.chunk.js",
+    "main.js.map": "/EliSheftolovich/Led-Screen-App/static/js/main.4c249f89.chunk.js.map",
+    "runtime-main.js": "/EliSheftolovich/Led-Screen-App/static/js/runtime-main.2d1ed9ff.js",
+    "runtime-main.js.map": "/EliSheftolovich/Led-Screen-App/static/js/runtime-main.2d1ed9ff.js.map",
+    "static/js/2.f5560387.chunk.js": "/EliSheftolovich/Led-Screen-App/static/js/2.f5560387.chunk.js",
+    "static/js/2.f5560387.chunk.js.map": "/EliSheftolovich/Led-Screen-App/static/js/2.f5560387.chunk.js.map",
+    "static/js/3.194ec28e.chunk.js": "/EliSheftolovich/Led-Screen-App/static/js/3.194ec28e.chunk.js",
+    "static/js/3.194ec28e.chunk.js.map": "/EliSheftolovich/Led-Screen-App/static/js/3.194ec28e.chunk.js.map",
+    "index.html": "/EliSheftolovich/Led-Screen-App/index.html",
+    "static/css/main.6157b346.chunk.css.map": "/EliSheftolovich/Led-Screen-App/static/css/main.6157b346.chunk.css.map",
+    "static/js/2.f5560387.chunk.js.LICENSE.txt": "/EliSheftolovich/Led-Screen-App/static/js/2.f5560387.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d1ed9ff.js",
+    "static/js/2.f5560387.chunk.js",
+    "static/css/main.6157b346.chunk.css",
+    "static/js/main.4c249f89.chunk.js"
+  ]
+}
