@@ -3,6 +3,11 @@
   text-align: right;
   /* background-color: #ececec25; */
 }
+
+.main-container {
+  margin-right: auto;
+  /* width: 70%; */
+}
 /* .container {
   margin: 0 !important; 
    padding: 0 !important;

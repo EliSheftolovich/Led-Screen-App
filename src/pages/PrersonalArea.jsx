@@ -37,7 +37,7 @@ const specElements = filteredSpecs.map((specs) => {
 });
 
     return ( 
-      <Col xs={10} >
+      <Col>
         <Container>
 
       <h3>אזור אישי</h3>

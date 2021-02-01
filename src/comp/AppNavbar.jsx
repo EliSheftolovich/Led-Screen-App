@@ -2,13 +2,13 @@ import {Col, Nav, Navbar } from 'react-bootstrap';
 import './AppNavbar.css';
 
   const AppNavbar = function(props) {
-    const {activeUser, handleLogout} = props;
+    const {activeUser, handleLogout, navDisplay} = props;
 
     const loginEl = ( ! activeUser)  ?  <Nav.Link href="/#/login">התחבר</Nav.Link>  : null;
     const signupEl = ( ! activeUser) ?  <Nav.Link href="/#/signup">הרשם</Nav.Link>  : null;
     const logoutEl = (activeUser) ?  <Nav.Link onClick={handleLogout}>התנתק</Nav.Link> : null;
         return ( 
-  <Col xs={2} className="nav" >
+    <Col xs={2} className="nav" style={{display:navDisplay}}>
     <Navbar className="flex-column mt-4">
     {signupEl}
      {loginEl}
@@ -24,7 +24,7 @@ import './AppNavbar.css';
     </Nav>
     </Navbar>
 
-  </Col>
+    </Col>
           
          );
     

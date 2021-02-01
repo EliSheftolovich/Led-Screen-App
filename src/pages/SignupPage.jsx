@@ -4,7 +4,7 @@ import { Button, Col, Form } from 'react-bootstrap';
 class SignupPage extends React.Component {
     render() {
         return (
-            <Col xs={10} style={{width: "500px", margin:"auto"}}>
+            <Col style={{width: "500px", margin:"auto"}}>
                 <h3>הרשם לאתר</h3>
 
             <div><a href="/#/ScreenBySize"> חזור לעמוד הראשי</a></div>

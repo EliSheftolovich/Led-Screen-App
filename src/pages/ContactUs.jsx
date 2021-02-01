@@ -4,9 +4,9 @@ import { Button, Col, Form} from 'react-bootstrap';
 class ContactUs extends Component {
   render() { 
     return ( 
-        <Col xs={10} >
+        <Col >
 
-          <div style={{width: "500px", margin:"auto"}}>
+          <div style={{width: "60%", margin:"auto"}}>
           <h3>צור קשר</h3>
             <Form>
 

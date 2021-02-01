@@ -42,6 +42,7 @@ class App extends React.Component {
         articles: getArticles(),
         searchQuery: "",
         sortColumn: {path: 'title', order: 'asc'},
+        navDisplay: "flex",
         activeUser:{
           "id": 1,
           "fname": "Eli",
@@ -60,6 +61,10 @@ class App extends React.Component {
     //   ))
     // }
 
+navDisplayToggle = () => {
+  const navDisplay = this.state.navDisplay === "flex" ? "none" : "flex" ;
+  this.setState({navDisplay});
+};
 
 /// methods for Info Comp :
 handleSearch = e => {
@@ -177,7 +182,8 @@ this.setState({sortColumn})
       const screenWeigth = ScreenSqm * 36;  //kg
       const screenMinView = cabinetPitch * 1.1; //meters
       const screenOptView = cabinetPitch * 1.9;
-  
+
+
         return {screenLength, screenHigth, screenSize, screenHorRes, screenVerRes, screenResolution, 
           screenRatio, screenDiagonal, ScreenSqm, screenMaxPowerCons, screenAvPowerCons, screenWeigth, screenMinView,
           screenOptView, cabinetPitch}
@@ -186,23 +192,27 @@ this.setState({sortColumn})
 
     render() {
       // console.log(this.state.specs)
-      const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch } = this.state;
+      const {cabinetsHor, cabinetsVer, cabinetHeight, cabinetWidth, cabinetPitch, navDisplay } = this.state;
 
       const screenTechData = this.computeSpecs();
-
+      
+      const mainColSize = (navDisplay === "flex")? "col-10" : "col-12";
+  
         return (
             <div >
                 <HashRouter>
                     <Container fluid>
                       <Row>
                             <Route exact path={['/ScreenBySize', '/ScreenByAngle', '/Info', '/ContactUs', '/PersonalArea']}>
-                                <AppNavbar handleLogout={this.handleLogout} activeUser={this.state.activeUser} />
+                                <AppNavbar handleLogout={this.handleLogout} activeUser={this.state.activeUser}
+                                navDisplay={this.state.navDisplay}/>
                             </Route>
 
                           <Switch>
                                 <Route exact path="/">
                                         <LandingPage />
                                 </Route>
+                                <div className={mainColSize} style={{marginRight: "auto"}}>
                                 <Route exact path="/ScreenBySize">
                                         <ScreenBySize
                                                 cabinetWidthChange={this.cabinetWidthChange} 
@@ -218,6 +228,7 @@ this.setState({sortColumn})
                                                 screenTechData={screenTechData}
                                                 activeUser={this.state.activeUser}
                                                 addSpec={this.addSpec}
+                                                handleNavDisplay={this.navDisplayToggle} 
                                         />
                                 </Route>
 
@@ -255,6 +266,7 @@ this.setState({sortColumn})
                                 <Route exact path="/signup">
                                     <SignupPage/>
                                 </Route>
+                                </div>
                           </Switch>
                       </Row>
                     </Container>

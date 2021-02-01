@@ -35,7 +35,7 @@ class LoginPage extends React.Component {
         // 2. if the user password matches
         // 3. update the activeUser state in <App> (using handleLogin() prop)
         return (
-            <Col xs={10} className="c-login-page">
+            <Col className="c-login-page col-6 m-auto">
                 <h1>התחבר</h1>
             <Form>
                 <Form.Group controlId="formBasicEmail">

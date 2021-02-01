@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap';
 class ScreenByAngle extends Component {
   render() { 
     return ( 
-<Col xs={10} >
+<Col >
         <h3>Screen By Angle</h3>
 
 </Col>

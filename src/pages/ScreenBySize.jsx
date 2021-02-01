@@ -13,8 +13,8 @@ class ScreenBySize extends Component {
   render() { 
     
     return ( 
-<Col xs={10}>
-      <h3> בחר מסך לד</h3>
+<Col>
+      <h3 onClick={this.props.handleNavDisplay}> בחר מסך לד</h3>
       <Row>
         <Col>
         <UserForm 
